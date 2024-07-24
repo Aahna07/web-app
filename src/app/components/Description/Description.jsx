@@ -17,7 +17,11 @@ const Description = () => {
       .catch((error) => {
         console.error("Error fetching data", error);
       });
-  });
+  }, []);
+
+  const handleClick = () => {
+    alert("item added");
+  };
 
   return (
     <div className="product-list">
@@ -31,7 +35,11 @@ const Description = () => {
           <h3 className="product-id">{product.id}</h3>
           <h4 className="product-title">{product.title}</h4>
           <h4 className="product-price">${product.price}</h4>
-          <Button variant="contained" endIcon={<AddShoppingCartIcon />}>
+          <Button
+            onClick={handleClick}
+            variant="contained"
+            endIcon={<AddShoppingCartIcon />}
+          >
             Add To Cart
           </Button>
         </div>
